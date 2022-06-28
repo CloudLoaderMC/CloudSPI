@@ -95,7 +95,6 @@ artifacts {
     archives sourcesJar
 }
 
-/*
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -131,7 +130,4 @@ publishing {
             }
         }
     }
-    repositories {
-        maven gradleutils.getPublishingCloudMaven("CloudSPI")
-    }
-}*/
+}
