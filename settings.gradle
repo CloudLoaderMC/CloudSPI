@@ -1,7 +1,15 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        maven { url = 'https://jitpack.io' }
         maven { url = 'https://maven.minecraftforge.net/' }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'ml.darubyminer360.gradleutils') {
+                useModule("com.github.CloudLoaderMC:GradleUtils:main-SNAPSHOT")
+            }
+        }
     }
 }
 

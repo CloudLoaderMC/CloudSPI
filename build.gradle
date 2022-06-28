@@ -2,7 +2,8 @@ plugins {
     id 'org.ajoberstar.grgit' version '4.1.0'
     id 'com.github.ben-manes.versions' version '0.39.0'
     id 'org.javamodularity.moduleplugin' version '1.8.3'
-    id 'net.minecraftforge.gradleutils' version '2.+'
+    id 'ml.darubyminer360.gradleutils' version 'main-SNAPSHOT'
+//    id 'com.github.CloudLoaderMC.GradleUtils' version 'main-SNAPSHOT'
     id 'maven-publish'
     id 'java-library'
 }
@@ -22,6 +23,7 @@ repositories {
         name = 'forge'
         url = 'https://maven.minecraftforge.net'
     }
+    maven { url = 'https://jitpack.io' }
 }
 
 def isNonStable = { String version ->
@@ -93,23 +95,24 @@ artifacts {
     archives sourcesJar
 }
 
+/*
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
             artifact sourcesJar
             pom {
-                name = 'Forge Service Provider Interface'
-                description = 'API for services which can plug into forge, or which are used by forge in other places'
-                url = 'https://github.com/MinecraftForge/ForgeSPI'
+                name = 'Cloud Service Provider Interface'
+                description = 'API for services which can plug into Cloud, or which are used by Cloud in other places'
+                url = 'https://github.com/CloudLoaderMC/CloudSPI'
                 scm {
-                    url = 'https://github.com/MinecraftForge/ForgeSPI'
-                    connection = 'scm:git:git://github.com/MinecraftForge/ForgeSPI.git'
-                    developerConnection = 'scm:git:git@github.com:MinecraftForge/ForgeSPI.git'
+                    url = 'https://github.com/CloudLoaderMC/CloudSPI'
+                    connection = 'scm:git:git://github.com/CloudLoaderMC/CloudSPI.git'
+                    developerConnection = 'scm:git:git@github.com:CloudLoaderMC/CloudSPI.git'
                 }
                 issueManagement {
                     system = 'github'
-                    url = 'https://github.com/MinecraftForge/ForgeSPI/issues'
+                    url = 'https://github.com/CloudLoaderMC/CloudSPI/issues'
                 }
 
                 licenses {
@@ -121,14 +124,14 @@ publishing {
 
                 developers {
                     developer {
-                        id = 'cpw'
-                        name = 'cpw'
+                        id = 'DaRubyMiner360'
+                        name = 'DaRubyMiner360'
                     }
                 }
             }
         }
     }
     repositories {
-        maven gradleutils.getPublishingForgeMaven()
+        maven gradleutils.getPublishingCloudMaven("CloudSPI")
     }
-}
+}*/
