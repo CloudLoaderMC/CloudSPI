@@ -48,4 +48,6 @@ public interface IModFileInfo
     IModFile getFile();
 
     IConfigurable getConfig();
+
+    ModLoaderType getNativeLoader();
 }
