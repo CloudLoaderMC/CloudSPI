@@ -15,11 +15,15 @@ apply plugin: 'org.javamodularity.moduleplugin'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-group 'net.minecraftforge'
+group 'ml.cloudmc'
 version = gradleutils.getTagOffsetBranchVersion()
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'Cloud'
+        url = 'https://maven.cloudmc.ml/releases'
+    }
     maven {
         name = 'forge'
         url = 'https://maven.minecraftforge.net'
@@ -47,18 +51,18 @@ changelog {
 
 
 ext.sharedManifest = manifest {
-    attributes('Automatic-Module-Name': 'net.minecraftforge.forgespi')
-    attributes(['Specification-Title': 'forgespi',
-                'Specification-Vendor': 'forge',
-                'Specification-Version': '5', // Currently version 4 of the forgespi specification
+    attributes('Automatic-Module-Name': 'ml.cloudmc.cloudspi')
+    attributes(['Specification-Title': 'CloudSPI',
+                'Specification-Vendor': 'Cloud',
+                'Specification-Version': '5', // Currently version 4 of the CloudSPI specification
                 'Implementation-Title': project.name,
                 'Implementation-Version': "${project.version}+${System.getenv('BUILD_NUMBER')?:0}+${gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master"}.${gradleutils.gitInfo.abbreviatedId}",
-                'Implementation-Vendor': 'forge',
+                'Implementation-Vendor': 'Cloud',
                 'Implementation-Timestamp': java.time.Instant.now().toString(),
                 'Git-Commit': gradleutils.gitInfo.abbreviatedId,
                 'Git-Branch': gradleutils.gitInfo.branch != null ? gradleutils.gitInfo.branch : "master",
                 'Build-Number': "${System.getenv('BUILD_NUMBER')?:0}"],
-            "net/minecraftforge/forgespi/")
+            "ml/cloudmc/cloudspi/")
 }
 
 jar {

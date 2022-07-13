@@ -1,16 +1,16 @@
-library 'forge-shared-library'
+library 'cloud-shared-library'
 
 pipeline {
     agent {
         docker {
             image 'gradle:7-jdk16'
-            args '-v forgespigc:/home/gradle/.gradle/'
+            args '-v cloudspigc:/home/gradle/.gradle/'
         }
     }
     environment {
         GRADLE_ARGS = '-Dorg.gradle.daemon.idletimeout=5000'
         DISCORD_WEBHOOK = credentials('forge-discord-jenkins-webhook')
-        DISCORD_PREFIX = "Job: ForgeSPI Branch: ${BRANCH_NAME} Build: #${BUILD_NUMBER}"
+        DISCORD_PREFIX = "Job: CloudSPI Branch: ${BRANCH_NAME} Build: #${BUILD_NUMBER}"
         JENKINS_HEAD = 'https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png'
     }
 
