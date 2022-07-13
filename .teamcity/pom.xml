@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <name>CloudLoaderMC_CloudSPI Config DSL Script</name>
-  <groupId>CloudLoaderMC_CloudSPI</groupId>
-  <artifactId>CloudLoaderMC_CloudSPI_dsl</artifactId>
+  <name>MinecraftForge_forgespi Config DSL Script</name>
+  <groupId>MinecraftForge_forgespi</groupId>
+  <artifactId>MinecraftForge_forgespi_dsl</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>

@@ -32,9 +32,9 @@ project {
 
     params {
         text("git_main_branch", "master", label = "Git Main Branch", description = "The git main or default branch to use in VCS operations.", display = ParameterDisplay.HIDDEN, allowEmpty = false)
-        text("github_repository_name", "CloudSPI", label = "The github repository name. Used to connect to it in VCS Roots.", description = "This is the repository slug on github. So for example `cloudspi` or `CloudLoaderMC`. It is interpolated into the global VCS Roots.", display = ParameterDisplay.HIDDEN, allowEmpty = false)
-        text("env.PUBLISHED_JAVA_ARTIFACT_ID", "cloudspi", label = "Published artifact id", description = "The maven coordinate artifact id that has been published by this build. Can not be empty.", allowEmpty = false)
-        text("env.PUBLISHED_JAVA_GROUP", "ml.cloudmc", label = "Published group", description = "The maven coordinate group that has been published by this build. Can not be empty.", allowEmpty = false)
+        text("github_repository_name", "forgespi", label = "The github repository name. Used to connect to it in VCS Roots.", description = "This is the repository slug on github. So for example `forgespi` or `MinecraftForge`. It is interpolated into the global VCS Roots.", display = ParameterDisplay.HIDDEN, allowEmpty = false)
+        text("env.PUBLISHED_JAVA_ARTIFACT_ID", "forgespi", label = "Published artifact id", description = "The maven coordinate artifact id that has been published by this build. Can not be empty.", allowEmpty = false)
+        text("env.PUBLISHED_JAVA_GROUP", "net.minecraftforge", label = "Published group", description = "The maven coordinate group that has been published by this build. Can not be empty.", allowEmpty = false)
         text("git_branch_spec", """
                 +:refs/heads/(main*)
                 +:refs/heads/(4.x)
@@ -43,23 +43,23 @@ project {
 
     features {
         githubIssues {
-            id = "CloudSPI__IssueTracker"
-            displayName = "CloudLoaderMC/CloudSPI"
-            repositoryURL = "https://github.com/CloudLoaderMC/CloudSPI"
+            id = "forgespi__IssueTracker"
+            displayName = "MinecraftForge/forgespi"
+            repositoryURL = "https://github.com/MinecraftForge/forgespi"
         }
     }
 }
 
 object Build : BuildType({
-    templates(AbsoluteId("CloudLoaderMC_SetupGradleUtilsCiEnvironmen"), AbsoluteId("CloudLoaderMC_BuildWithDiscordNotifications"), AbsoluteId("CloudLoaderMC_BuildMainBranches"), AbsoluteId("CloudLoaderMC_BuildUsingGradle"), AbsoluteId("CloudLoaderMC_PublishProjectUsingGradle"), AbsoluteId("CloudLoaderMC_TriggersStaticFilesWebpageGenerator"))
-    id("CloudSPI__Build")
+    templates(AbsoluteId("MinecraftForge_SetupGradleUtilsCiEnvironmen"), AbsoluteId("MinecraftForge_BuildWithDiscordNotifications"), AbsoluteId("MinecraftForge_BuildMainBranches"), AbsoluteId("MinecraftForge_BuildUsingGradle"), AbsoluteId("MinecraftForge_PublishProjectUsingGradle"), AbsoluteId("MinecraftForge_TriggersStaticFilesWebpageGenerator"))
+    id("forgespi__Build")
     name = "Build"
     description = "Builds and Publishes the main branches of the project."
 })
 
 object PullRequests : BuildType({
-    templates(AbsoluteId("CloudLoaderMC_BuildPullRequests"), AbsoluteId("CloudLoaderMC_SetupGradleUtilsCiEnvironmen"), AbsoluteId("CloudLoaderMC_BuildWithDiscordNotifications"), AbsoluteId("CloudLoaderMC_BuildUsingGradle"))
-    id("CloudSPI__PullRequests")
+    templates(AbsoluteId("MinecraftForge_BuildPullRequests"), AbsoluteId("MinecraftForge_SetupGradleUtilsCiEnvironmen"), AbsoluteId("MinecraftForge_BuildWithDiscordNotifications"), AbsoluteId("MinecraftForge_BuildUsingGradle"))
+    id("forgespi__PullRequests")
     name = "Pull Requests"
     description = "Builds pull requests for the project"
 })
