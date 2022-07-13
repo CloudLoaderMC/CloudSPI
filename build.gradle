@@ -15,11 +15,15 @@ apply plugin: 'org.javamodularity.moduleplugin'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-group 'net.minecraftforge'
+group 'ml.cloudmc'
 version = gradleutils.getTagOffsetBranchVersion()
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'Cloud'
+        url = 'https://maven.cloudmc.ml/releases'
+    }
     maven {
         name = 'forge'
         url = 'https://maven.minecraftforge.net'
