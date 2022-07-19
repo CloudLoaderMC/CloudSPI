@@ -91,6 +91,8 @@ public interface IModInfo
 
         boolean isMandatory();
 
+        boolean isPositive();
+
         Ordering getOrdering();
 
         DependencySide getSide();
