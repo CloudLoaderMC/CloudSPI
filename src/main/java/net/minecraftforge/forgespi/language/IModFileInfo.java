@@ -19,14 +19,14 @@
 
 package net.minecraftforge.forgespi.language;
 
+import ml.cloudmc.cloudspi.BasicModInfo;
 import net.minecraftforge.forgespi.locating.IModFile;
 import org.apache.maven.artifact.versioning.VersionRange;
 
 import java.util.List;
 import java.util.Map;
 
-public interface IModFileInfo
-{
+public interface IModFileInfo extends BasicModInfo {
     List<IModInfo> getMods();
 
     record LanguageSpec(String languageName, VersionRange acceptedVersions) {}
