@@ -19,6 +19,7 @@
 
 package net.minecraftforge.forgespi.language;
 
+import ml.cloudmc.cloudspi.BasicModInfo;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.forgespi.Environment;
 import net.minecraftforge.forgespi.locating.ForgeFeature;
@@ -30,8 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public interface IModInfo
-{
+public interface IModInfo extends BasicModInfo {
     VersionRange UNBOUNDED = MavenVersionAdapter.createFromVersionSpec("");
 
     IModFileInfo getOwningFile();
