@@ -78,13 +78,14 @@ task sourcesJar(type: Jar) {
 
 
 dependencies {
-    implementation('ml.cloudmc:ModLauncher:10.0.12')
+    implementation('ml.cloudmc:ModLauncher:10.0.14')
     implementation('org.ow2.asm:asm:9.2')
     implementation('org.ow2.asm:asm-commons:9.2')
     implementation('org.ow2.asm:asm-tree:9.2')
     implementation('org.apache.logging.log4j:log4j-api:2.17.0')
     implementation('org.apache.maven:maven-artifact:3.8.1')
-    implementation('cpw.mods:securejarhandler:0.9.52')
+    implementation('ml.cloudmc:SecureJarHandler:2.1.5')
+//    implementation('cpw.mods:securejarhandler:0.9.52')
 
 
     testRuntimeOnly('org.apache.logging.log4j:log4j-core:2.17.0')
